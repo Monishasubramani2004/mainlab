@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Appointment App</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- FullCalendar CSS -->
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/main.min.css' rel='stylesheet' />
+
+<!-- FullCalendar JS -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/main.min.js'></script>
+
+</head>
+<body>
+  <div class="content-box">
+    <h2>Welcome <span id="userWelcome"></span></h2>
+
+    <form id="appointmentForm">
+      <input type="text" id="title" placeholder="Appointment Title" required />
+      <input type="datetime-local" id="date" required />
+      <button type="submit">Add Appointment</button>
+    </form>
+
+    <h3>Your Appointments</h3>
+    <ul id="appointmentsList"></ul>
+    
+    <h3>Completed Appointments</h3>
+    <ul id="completedList"></ul>
+    
+
+
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const username = localStorage.getItem("loggedInUser");
+      if (!username) return;
+  
+      const appointments = JSON.parse(localStorage.getItem(`appointments_${username}`)) || [];
+  
+      // Map appointments to FullCalendar event format
+      const events = appointments.map(appt => ({
+        title: appt.title,
+        start: appt.date,
+        allDay: false
+      }));
+  
+      const calendarEl = document.getElementById('calendar');
+  
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: events,
+        eventClick: function(info) {
+          alert('Appointment: ' + info.event.title + '\nDate: ' + info.event.start.toLocaleString());
+        }
+      });
+  
+      calendar.render();
+    });
+  </script>
+  
+</body>
+</html>

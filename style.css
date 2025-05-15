@@ -1,0 +1,107 @@
+/* Full-page responsive layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Container that stretches to full height */
+  .page-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Form and content styling */
+  form, .content-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #222;
+    margin-top: 0;
+  }
+  
+  input, button {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #357ABD;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  li {
+    background-color: #ffffffdd;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  li button {
+    margin-top: 5px;
+    margin-right: 5px;
+    width: auto;
+    display: inline-block;
+    font-size: 14px;
+  }
+  
+  #searchInput, #filterDate {
+    margin-top: 10px;
+  }
+  
+  /* Ensure mobile responsiveness */
+  @media (max-width: 500px) {
+    .page-container {
+      padding: 20px 10px;
+    }
+  }
+  #calendar {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+    
